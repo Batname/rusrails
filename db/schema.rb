@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20130503124427) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "redirects", force: true do |t|
     t.string   "from"
     t.string   "to"
@@ -27,13 +24,13 @@ ActiveRecord::Schema.define(version: 20130503124427) do
     t.string   "title"
     t.string   "path"
     t.string   "namespace"
-    t.text     "body"
+    t.text     "body",       limit: 65537
     t.string   "extension"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "static_docs_pages", ["namespace"], name: "index_static_docs_pages_on_namespace", using: :btree
-  add_index "static_docs_pages", ["path"], name: "index_static_docs_pages_on_path", using: :btree
+  add_index "static_docs_pages", ["namespace"], name: "index_static_docs_pages_on_namespace"
+  add_index "static_docs_pages", ["path"], name: "index_static_docs_pages_on_path"
 
 end

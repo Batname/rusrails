@@ -5,8 +5,15 @@ gem 'rails', " ~> 4.0.0"
 gem 'russian'
 gem 'static_docs' #, path: "/Users/mikdiet/projects/opensource/static_docs"
 
-gem 'pg'
+
+group :production do
+  gem 'pg'
+end
+
 gem 'textacular', '~> 3.0'
+
+
+gem 'sqlite3'
 
 gem 'nokogiri'
 gem 'sass-rails', '~> 4.0.0'
